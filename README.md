@@ -12,4 +12,4 @@ The zipcode and resulting conditions are saved in a Mongo database to review and
 This project is full-stack with focus on the frontend. 
 The site was developed using vanilla Javascript for the frontend and Node, Express, and Mongo on the backend.
 
-All public work can be found at https://github.com/raqlol/ The final release of Sweater Weather can be found at http://raqlol.com/sweater-weather
+All public work can be found at https://github.com/raqlol/
