@@ -8,34 +8,24 @@ function validateForm () {
 function sendZip () {
 	var newZip = document.forms["zipForm"]["zipInput"].value;
 	var converted = parseFloat(newZip);
-	var http = new XMLHttpRequest();
-	var url = "http://localhost:8000/api/zip";
-	var params = "zipcode="+ newZip;
-	http.open("POST", url, true);
-	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	if ((newZip.length === 5) && !isNaN(converted)) {
-		http.send(params);
-
-	}
-	else {
+	if ((newZip.length !== 5) || isNaN(converted)) {
 		alert ('Enter a valid 5 digit zipcode please');
-		return false
 	}
-	setTimeout(getConditions, 500);
+	getConditions(converted);
 }
 
-function getConditions () {
+function getConditions (zipCode) {
 	var wu = new XMLHttpRequest();
-	wu.open("GET", 'http://localhost:8000/api/conditions', true);
+	var url = 'http://api.wunderground.com/api/0e8203c8987c2d46/geolookup/conditions/q/' + zipCode + '.json';
+	console.log(url)
+	wu.open("GET", url, true);
 	wu.send();
 	wu.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200) {
 	 		var myArr = JSON.parse(this.responseText);
-			var lastNum = myArr.length -1;
-			var lastEntry = myArr[lastNum];
-			var location = lastEntry.location;
-			var weather = lastEntry.weather;
-			var feelslike = Math.round(lastEntry.feelslike);
+			var location = myArr.location.city;
+			var weather = myArr.current_observation.feelslike_f;
+			var feelslike = Math.round(weather);
 			var display = "It looks like you're in " + location + ".</br> Right now it feels like " + feelslike + "&deg; F.";
 			if (feelslike > 85) {
 				document.body.style.backgroundColor  = "#FF7A69";
