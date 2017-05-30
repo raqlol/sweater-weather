@@ -6,10 +6,9 @@ Often the actual temperature in SF is decieving and I was sick of leaving the ho
 My goal was to create an easy to use app that lets you know what it actually feels like outside.
 
 I used the Weather Underground API to pull the current conditions based on zipcode and updated the page to reflect what it feels like.
-The initial implementation used autodetect IP to guess your location, but some inaccurate feedback, I added the input area for your zipcode.
-The zipcode and resulting conditions are saved in a Mongo database to review and find ways to enhance usability in future releases.
+The page loads using autodetect IP to guess your location, but it isn't always accurate so I added the input area for your zipcode.
 
-This project is full-stack with focus on the frontend. 
-The site was developed using vanilla Javascript for the frontend and Node, Express, and Mongo on the backend.
+The origina project is full-stack, however I've created a frontend only implementation specifically for this repo.
+The site was developed using vanilla Javascript.
 
-All public work can be found at https://github.com/raqlol/
+All public work can be found at https://raqlol.com/sweater-weather
