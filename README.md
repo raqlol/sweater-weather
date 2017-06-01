@@ -8,7 +8,8 @@ My goal was to create an easy to use app that lets you know what it actually fee
 I used the Weather Underground API to pull the current conditions based on zipcode and updated the page to reflect what it feels like.
 The page loads using autodetect IP to guess your location, but it isn't always accurate so I added the input area for your zipcode.
 
-The origina project is full-stack, however I've created a frontend only implementation specifically for this repo.
+The original project is full-stack and will be added to the google play store soon, however I've created a frontend only implementation specifically for this repo.
+
 The site was developed using vanilla Javascript.
 
-All public work can be found at https://raqlol.com/sweater-weather
+All public work can be found at http://raqlol.com/sweater-weather
